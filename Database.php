@@ -69,4 +69,8 @@
         public function insertDataIntoTable($table, $fields, $data) {
             
         }
+<<<<<<< HEAD
     }
+=======
+    }
+>>>>>>> origin/master
