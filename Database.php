@@ -15,7 +15,7 @@
         public function __construct() {
             $conn = new MySQLi('localhost', 'root', '', 'test');
             if ($conn->connect_errno) {
-                die($conn->connect_errno);
+                throw new Exception($conn->connect_errno, 1);
             } else {
                 $this->_connStatus = true;
                 $this->_connData = $conn;
@@ -50,7 +50,7 @@
             $count = $statement->num_rows;
 
             if ($count == 0) {
-                die ("No data found in table:" . $table . "!");
+                throw new Exception("No data in: " . $table, 1);
             } else {
                 while ($result = $statement->fetch_assoc()) {
                     echo $result[$searchData] . "\r\n";
@@ -69,8 +69,4 @@
         public function insertDataIntoTable($table, $fields, $data) {
             
         }
-<<<<<<< HEAD
     }
-=======
-    }
->>>>>>> origin/master
